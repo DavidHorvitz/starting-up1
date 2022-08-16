@@ -1,0 +1,9 @@
+.About h1 {
+    text-decoration: none;
+    color: rgb(240, 18, 206);
+}
+
+.About h1:hover
+ {
+    color: #73d200;
+}

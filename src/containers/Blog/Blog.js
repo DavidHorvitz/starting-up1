@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import './Blog.css';
-import { Route, Routes } from 'react-router-dom';
-
+import { Route, Routes, Link } from 'react-router-dom';
+import Posts from './Posts/Posts';
+import NewPost from './NewPost/NewPost';
+import About from './About/About';
 class Blog extends Component {
 
     render() {
@@ -12,16 +14,16 @@ class Blog extends Component {
                 <header>
                     <nav>
                         <ul>
-                            <li><a href='/'>Home</a></li>
-                            <li><a href='/new-post'>Now Post</a></li>
-                            <li><a href='/about'>Now Post</a></li>
+                            <li><Link to='/'>Home</Link></li>
+                            <li><Link to='/new-post'>Now Post</Link></li>
+                            <li><Link to='/about' >About</Link></li>
                         </ul>
                     </nav>
                 </header>
                 <Routes>
-                    <Route path="/" exact element={<h1>Home</h1>} />
-                    <Route path="/new-post" exact element={<h1>New Post</h1>} />
-                    <Route path="/about" exact element={<h1>about</h1>} />
+                    <Route path="/" exact element={<Posts />} />
+                    <Route path="/new-post" element={<NewPost />} />
+                    <Route path="/about" element={<About />} />
                 </Routes>
 
             </div>
