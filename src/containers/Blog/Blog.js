@@ -1,34 +1,37 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import './Blog.css';
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, NavLink, useParams } from 'react-router-dom';
 import Posts from './Posts/Posts';
 import NewPost from './NewPost/NewPost';
 import About from './About/About';
-class Blog extends Component {
+import FullPost from './FullPost/FullPost';
+const Blog = () => {
 
-    render() {
+let {id} = useParams();
 
-        return (
-            <div className='Blog'>
-                <header>
-                    <nav>
-                        <ul>
-                            <li><Link to='/'>Home</Link></li>
-                            <li><Link to='/new-post'>Now Post</Link></li>
-                            <li><Link to='/about' >About</Link></li>
-                        </ul>
-                    </nav>
-                </header>
-                <Routes>
-                    <Route path="/" exact element={<Posts />} />
-                    <Route path="/new-post" element={<NewPost />} />
-                    <Route path="/about" element={<About />} />
-                </Routes>
+    return (
+        <div className='Blog'>
+            <header>
+                <nav>
+                    <ul>
+                        <li><NavLink to='/'>Home</NavLink></li>
+                        <li><NavLink to='/new-post'>Now Post</NavLink></li>
+                        <li><NavLink to='/about' >About</NavLink></li>
+                    </ul>
+                </nav>
+            </header>
+            <Routes>
+                <Route path="/" exact element={<Posts />} />
+                <Route path="/new-post" element={<NewPost />} />
+                <Route path=":id"  element={<FullPost />} />
+                {/* <Route path="/:id" exact element={<FullPost />} /> */}
+                <Route path="/about" element={<About />} />
+            </Routes>
 
-            </div>
-        );
-    }
+        </div>
+    );
 }
+
 
 export default Blog;
